@@ -1,9 +1,9 @@
-import { CANVAS_WIDTH, CANVAS_HEIGHT, ITEM_CONFIG } from "./config.js";
-import { Player } from "./player.js";
-import { BulletManager } from "./bullet.js";
-import { EnemyManager } from "./enemy.js";
-import { ItemManager } from "./item.js";
-import { UI } from "./ui.js";
+import { CANVAS_WIDTH, CANVAS_HEIGHT, ITEM_CONFIG } from "../config/index.js";
+import { Player } from "../entities/players/player.js";
+import { BulletManager } from "../entities/weapons/bullet.js";
+import { EnemyManager } from "../entities/enemies/enemy.js";
+import { ItemManager } from "../entities/items/item.js";
+import { UI } from "./UI.js";
 
 // 캔버스 설정
 const canvas = document.getElementById("gameCanvas");

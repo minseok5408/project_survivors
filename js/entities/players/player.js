@@ -1,4 +1,4 @@
-import { PLAYER_CONFIG } from "./config.js";
+import { PLAYER_CONFIG } from "../../config/index.js";
 
 export class Player {
   constructor(canvas) {
