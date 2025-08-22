@@ -1,4 +1,4 @@
-import { ENEMY_CONFIG } from "./config.js";
+import { ENEMY_CONFIG } from "../../config/index.js";
 
 export class Enemy {
   constructor(x, y) {

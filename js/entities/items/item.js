@@ -1,4 +1,4 @@
-import { ITEM_CONFIG } from "./config.js";
+import { ITEM_CONFIG } from "../../config/index.js";
 
 export class Heart {
   constructor(x, y) {

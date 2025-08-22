@@ -1,4 +1,4 @@
-import { BULLET_CONFIG } from "./config.js";
+import { BULLET_CONFIG } from "../../config/index.js";
 
 export class Bullet {
   constructor(x, y, angle) {
