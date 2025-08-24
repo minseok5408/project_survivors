@@ -17,7 +17,7 @@ canvas {
   background-color: darkgreen;
 }
 
-button {
+#startButton {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,11 +31,177 @@ button {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+#retryButton {
+  position: absolute;
+  top: calc(50% + 120px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-button:hover {
+#startButton:hover,
+#retryButton:hover {
   background-color: #45a049;
 }
 
 #retryButton {
   display: none;
+}
+
+/* ===== Character Select Modal ===== */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal {
+  width: 640px;
+  max-width: 90vw;
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.char-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  color: inherit;
+  position: relative;
+}
+
+.char-card:hover {
+  border-color: #666;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.char-card.selected {
+  outline: 2px solid #ffd166;
+}
+
+.char-card .avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.char-card .name {
+  font-weight: bold;
+}
+
+.char-card .stats {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.modal button {
+  position: static;
+  transform: none;
+  top: auto;
+  left: auto;
+}
+
+.modal .primary,
+.modal .ghost {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.modal .primary {
+  background: #4caf50;
+  color: #fff;
+}
+
+.modal .primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modal .ghost {
+  background: transparent;
+  color: #ddd;
+  border: 1px solid #444;
+}
+
+.modal .modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  gap: 12px;
+}
+
+/* 반응형에서 겹침 방지 */
+@media (max-width: 480px) {
+  .modal .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .modal .primary,
+  .modal .ghost {
+    width: 100%;
+  }
+}
+
+.icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.icon-wrap svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.char-card.disabled .icon-wrap {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.char-card.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

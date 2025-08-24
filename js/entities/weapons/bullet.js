@@ -39,9 +39,12 @@ export class BulletManager {
     if (currentTime - this.lastBulletTime >= adjustedFireRate) {
       // 플레이어가 이동하지 않았을 때는 마지막 방향으로 발사
       const direction = player.lastDirection || 0;
-      let angleStep = Math.PI / (player.bulletCount + 1);
+      const TOTAL_SPREAD = (Math.PI / 180) * 1.0;
+      const angleStep =
+        player.bulletCount > 1 ? TOTAL_SPREAD / (player.bulletCount - 1) : 0;
       for (let i = 0; i < player.bulletCount; i++) {
-        let angle = direction + angleStep * (i - (player.bulletCount - 1) / 2);
+        const angle =
+          direction + (i - (player.bulletCount - 1) / 2) * angleStep;
         const bullet = new Bullet(
           player.x + player.size / 2,
           player.y + player.size / 2,
