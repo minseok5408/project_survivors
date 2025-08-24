@@ -13,12 +13,66 @@ export const PLAYER_CONFIG = {
   bulletCount: 1,
 };
 
-// 총알 설정
+// 캐릭터 프리셋
+export const CHARACTERS = [
+  {
+    id: "soldier",
+    name: "Soldier",
+    color: "#4DA3FF",
+    size: 20,
+    speed: 4,
+    hp: 100,
+    bulletCount: 1,
+    weapon: "bullet", // 🔹 기본 무기: 총알
+  },
+  {
+    id: "priest",
+    name: "Priest",
+    color: "#7CF29A",
+    size: 18,
+    speed: 3,
+    hp: 80,
+    bulletCount: 1,
+    weapon: "bible", // 🔹 기본 무기: 바이블
+  },
+  {
+    id: "hunter",
+    name: "Hunter",
+    color: "#FF7A7A",
+    size: 18,
+    speed: 5,
+    hp: 80,
+    bulletCount: 1,
+    weapon: "bullet", //todo
+  },
+  {
+    id: "gunner",
+    name: "Gunner",
+    color: "#FFD166",
+    size: 20,
+    speed: 4,
+    hp: 100,
+    bulletCount: 2,
+    weapon: "bullet", //todo
+  },
+];
+
+// 기본 무기(총알) 설정
 export const BULLET_CONFIG = {
   size: 5,
   speed: 10,
   damage: 10,
   fireRate: 200, // 발사 간격 (밀리초)
+};
+
+// 회전 무기(바이블) 설정
+export const BIBLE_CONFIG = {
+  size: 12, // 바이블 크기
+  radius: 70, // 플레이어를 중심으로 도는 반지름
+  rotationSpeed: 3.14, // 초당 라디안(기본 1배속 기준)
+  baseCount: 1, // 기본 개수
+  maxCount: 7, // 최대 개수
+  damage: 10,
 };
 
 // 적 설정
